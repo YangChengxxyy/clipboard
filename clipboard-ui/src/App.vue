@@ -1,60 +1,46 @@
 <template>
   <v-app>
-    <v-app-bar
-      app
-      color="primary"
-      dark
-    >
-      <div class="d-flex align-center">
-        <v-img
-          alt="Vuetify Logo"
-          class="shrink mr-2"
-          contain
-          src="https://cdn.vuetifyjs.com/images/logos/vuetify-logo-dark.png"
-          transition="scale-transition"
-          width="40"
-        />
-
-        <v-img
-          alt="Vuetify Name"
-          class="shrink mt-1 hidden-sm-and-down"
-          contain
-          min-width="100"
-          src="https://cdn.vuetifyjs.com/images/logos/vuetify-name-dark.png"
-          width="100"
-        />
-      </div>
-
-      <v-spacer></v-spacer>
-
-      <v-btn
-        href="https://github.com/vuetifyjs/vuetify/releases/latest"
-        target="_blank"
-        text
-      >
-        <span class="mr-2">Latest Release</span>
-        <v-icon>mdi-open-in-new</v-icon>
-      </v-btn>
+    <v-app-bar app dark color="cyan">
+      <v-app-bar-title>剪贴板</v-app-bar-title>
     </v-app-bar>
 
+    <!-- 根据应用组件来调整你的内容 -->
     <v-main>
-      <HelloWorld/>
+      <!-- 给应用提供合适的间距 -->
+      <v-container fluid>
+        <v-row>
+          <v-col cols="12" md="8" offset-md="2">
+            <v-tabs v-model="tab" align-with-title>
+              <v-tabs-slider></v-tabs-slider>
+              <v-tab> 文本 </v-tab>
+              <v-tab> 文件 </v-tab>
+            </v-tabs>
+            <v-tabs-items v-model="tab">
+              <v-card>
+              <template v-if="tab == 0">
+                <TextBoard></TextBoard>
+              </template>
+              <template v-else-if="tab == 1">
+                <File></File>
+              </template>
+              </v-card>
+            </v-tabs-items>
+          </v-col>
+        </v-row>
+      </v-container>
     </v-main>
   </v-app>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld';
-
+import File from "./components/File.vue";
+import TextBoard from "./components/TextBoard.vue";
 export default {
-  name: 'App',
-
-  components: {
-    HelloWorld,
-  },
+  components: { TextBoard, File },
+  name: "App",
 
   data: () => ({
-    //
+    tab: 0,
   }),
 };
 </script>

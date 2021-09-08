@@ -9,6 +9,7 @@ import com.baomidou.mybatisplus.generator.config.*
 import com.baomidou.mybatisplus.generator.config.po.TableInfo
 import com.baomidou.mybatisplus.generator.config.rules.NamingStrategy
 import com.baomidou.mybatisplus.generator.engine.FreemarkerTemplateEngine
+import org.springframework.beans.factory.annotation.Value
 import java.util.*
 import kotlin.collections.ArrayList
 
@@ -19,7 +20,7 @@ object CodeGenerator {
      * 读取控制台内容
      *
      */
-    fun scanner(tip: String): String {
+    private fun scanner(tip: String): String {
         val scanner = Scanner(System.`in`)
         val help = StringBuilder()
         help.append("请输入$tip：")

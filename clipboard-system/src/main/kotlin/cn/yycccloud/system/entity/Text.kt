@@ -1,5 +1,7 @@
 package cn.yycccloud.system.entity
 
+import com.baomidou.mybatisplus.annotation.IdType
+import com.baomidou.mybatisplus.annotation.TableId
 import java.io.Serializable
 /**
  * <p>
@@ -9,11 +11,11 @@ import java.io.Serializable
  * @author YangChengxxyy
  * @since 2021-09-07
  */
-class Board : Serializable {
+class Text(var value: String?) : Serializable {
 
-
-    var value: String? = null
+    @TableId(type = IdType.AUTO)
     var id: Int? = null
+
     override fun toString(): String {
         return "Board(value=$value, id=$id)"
     }

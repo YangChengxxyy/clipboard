@@ -1,6 +1,6 @@
 package cn.yycccloud.system.service;
 
-import cn.yycccloud.system.entity.Board;
+import cn.yycccloud.system.entity.Text;
 import com.baomidou.mybatisplus.extension.service.IService;
 
 /**
@@ -11,4 +11,4 @@ import com.baomidou.mybatisplus.extension.service.IService;
  * @author YangChengxxyy
  * @since 2021-09-07
  */
-interface IBoardService : IService<Board>
+interface ITextService : IService<Text>
